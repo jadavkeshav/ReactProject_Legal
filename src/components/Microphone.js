@@ -20,7 +20,7 @@ const Microphone = () => {
   function submit(){
     if (!listening ){
       return null;
-      resetTranscript();
+      newtranscript('');
     }
     else{
       clickHandler();
