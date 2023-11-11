@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import './Micro.css';
 
 const Microphone = () => {
   const { transcript, listening , resetTranscript ,  isMicrophoneAvailable,browserSupportsSpeechRecognition } = useSpeechRecognition();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [mytranscript, newtranscript] = useState(transcript);
   function check() {
     if (listening)
@@ -20,7 +20,6 @@ const Microphone = () => {
   function submit(){
     if (!listening ){
       return null;
-      newtranscript('');
     }
     else{
       clickHandler();
@@ -40,9 +39,9 @@ const Microphone = () => {
   }
   let clickHandler = () => {
     // Check for keywords in the transcript and navigate to appropriate components
-    if (transcript.includes('phone')) {
-      navigate('/phone');
-    }
+    // if (transcript.includes('phone')) {
+    //   navigate('/phone');
+    // }
     const userWords = transcript.split(" ");
     for (var i = 0; i < userWords.length; i++) {
       if (userWords[i] in data) {
@@ -62,6 +61,7 @@ const Microphone = () => {
     <>
     <div>
       <button onClick={ clicks }>{listening ? 'stop' : 'start'}</button>
+      <button onClick={ resetTranscript }>Reset</button>
       <p>{transcript}</p>
     </div>
     <div>
