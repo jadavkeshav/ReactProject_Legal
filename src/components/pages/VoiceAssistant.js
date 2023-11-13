@@ -110,24 +110,17 @@ export default function VoiceAssistant() {
     ]
   }
 
-
   function calculateMatchingWords(str1, str2) {
     const words1 = str1.toLowerCase().split(' ');
     const words2 = str2.toLowerCase().split(' ');
-
     let matchCount = 0;
-
-    // Iterate through each word in the user input
     for (const word1 of words1) {
-      // Check if the word exists in the question
       if (words2.includes(word1)) {
         matchCount++;
       }
     }
-
     return matchCount;
   }
-
 
   function findanswer(transcript) {
     if (jsonData.questions && jsonData.questions.length > 0) {
@@ -135,10 +128,7 @@ export default function VoiceAssistant() {
       let bestMatchQuestion = null;
       const lowerCaseInput = transcript.toLowerCase();
       for (const question of jsonData.questions) {
-        // Calculate the number of matching words
         const matchCount = calculateMatchingWords(lowerCaseInput, question.question);
-
-        // Update if the current question has more matches
         if (matchCount > maxMatchCount) {
           maxMatchCount = matchCount;
           bestMatchQuestion = question;
@@ -147,19 +137,17 @@ export default function VoiceAssistant() {
       if (bestMatchQuestion) {
         console.log("Answer: ", bestMatchQuestion.answer);
         newtranscript(bestMatchQuestion.answer)
-      } else {
+      }
+      else {
         console.log("No matching answer found for the given question.");
         newtranscript("No matching answer found for the given question.");
       }
-    } else {
+    }
+    else {
       console.log("No questions found in the JSON data.");
       newtranscript("No questions found in the JSON data.");
     }
-
   }
-
-
-
 
   if (!browserSupportsSpeechRecognition) {
     return null;
@@ -167,9 +155,6 @@ export default function VoiceAssistant() {
   if (!isMicrophoneAvailable) {
     alert('MicroPhone access is denied');
   }
-
-
-
 
   function check() {
     if (listening) {
@@ -185,7 +170,7 @@ export default function VoiceAssistant() {
       return null;
     }
     else {
-      findanswer();
+      findanswer(transcript);
     }
   }
   function clicks() {
