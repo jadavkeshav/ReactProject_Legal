@@ -9,6 +9,7 @@ import CharSpeak from './components/ChatSpeak.js';
 import Phone from './components/pages/Phone.js';
 import Questions from './components/pages/Questions.js';
 import VoiceAssistant from './components/pages/VoiceAssistant.js';
+// import ButtonAnimation from './components/pages/ButtonAnimation.js';
 
 function App() {
   return (
