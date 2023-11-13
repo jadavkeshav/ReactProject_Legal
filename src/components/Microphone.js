@@ -5,7 +5,6 @@ import './Micro.css';
 
 const Microphone = () => {
   const { transcript, listening , resetTranscript ,  isMicrophoneAvailable,browserSupportsSpeechRecognition } = useSpeechRecognition();
-  // const navigate = useNavigate();
   const [mytranscript, newtranscript] = useState(transcript);
   function check() {
     if (listening)
@@ -20,7 +19,7 @@ const Microphone = () => {
   function submit(){
     if (!listening ){
       return null;
-    }
+    } 
     else{
       clickHandler();
     }
@@ -59,9 +58,10 @@ const Microphone = () => {
   return (
 
     <>
+
     <div>
-      <button onClick={ clicks }>{listening ? 'stop' : 'start'}</button>
-      <button onClick={ resetTranscript }>Reset</button>
+      <button style={{"padding":"30px", "marginRight":"20px"}} onClick={ clicks }>{listening ? 'stop' : 'start'}</button>
+      <button  style={{"padding":"30px", "marginRight":"20px"}} onClick={ resetTranscript }>Reset</button>
       <p>{transcript}</p>
     </div>
     <div>

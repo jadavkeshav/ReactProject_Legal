@@ -22,6 +22,9 @@ function NavBar(props) {
                             <Link className="nav-link active" to="/chatbot">ChatBot</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link active" to="/voice">VoiceAssistant</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link active " to="/off">OfflineResources</Link>
                         </li>
                     </ul>
