@@ -58,6 +58,10 @@ export default function VoiceAssistant() {
         check();
         submit();
       }
+    function reset(){
+        resetTranscript();
+        newtranscript(' ');
+      }
     return (
         <>
             <div>
@@ -66,15 +70,15 @@ export default function VoiceAssistant() {
                         style={{ height: "95vh" }}>
                         <div className="text-center my-5">
                         <button class="btn btn-success" style={{ "padding": "30px", "marginRight": "20px" }} onClick={clicks}>{listening ? 'stop' : 'start'}</button>
-                        <button class="btn btn-warning" style={{ "padding": "30px", "marginRight": "20px" }} onClick={resetTranscript}>Reset</button>
+                        <button class="btn btn-warning" style={{ "padding": "30px", "marginRight": "20px" }} onClick={reset}>Reset</button>
                         </div>
                     </div>
-                    <div className="col-8 d-flex flex-column align-items-center justify-content-center" style={{ height: "95vh", backgroundColor: "aqua" }} >
-                        <div className="response " style={{ height: "85vh", width: "100vh", backgroundColor: "blueviolet" }} >
-                            <div className="row-2" style={{ backgroundColor: "azure", padding: "2%", margin: "2%" }} >
+                    <div className="col-8 d-flex flex-column align-items-center justify-content-center" style={{ height: "95vh", backgroundColor: "" }} >
+                        <div className="response " style={{ height: "85vh", width: "100vh", backgroundColor: "" }} >
+                            <div className="row-2" style={{ backgroundColor: "", padding: "2%", margin: "2%" }} >
                                 {transcript}
                             </div>
-                            <div className="row-2" style={{ backgroundColor: "azure", padding: "2%", margin: "2%", height: "70vh" }}>
+                            <div className="row-2" style={{ backgroundColor: "", padding: "2%", margin: "2%", height: "70vh" }}>
                                 {mytranscript}
                             </div>
                         </div>
