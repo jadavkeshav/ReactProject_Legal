@@ -6,7 +6,7 @@ export default function VoiceAssistant() {
   const [mytranscript, newtranscript] = useState(transcript);
 
   const jsonData = {
-    "questions": [
+    "data": [
       {
         "question": "I lost my bike. What do I do?",
         "answer": "If your bike is lost, you should immediately file a First Information Report (FIR) at the nearest police station. Provide all the necessary details about the bike and the circumstances of its loss. Additionally, inform your insurance company about the incident."
@@ -123,11 +123,11 @@ export default function VoiceAssistant() {
   }
 
   function findanswer(transcript) {
-    if (jsonData.questions && jsonData.questions.length > 0) {
+    if (jsonData.data && jsonData.data.length > 0) {
       let maxMatchCount = 0;
       let bestMatchQuestion = null;
       const lowerCaseInput = transcript.toLowerCase();
-      for (const question of jsonData.questions) {
+      for (const question of jsonData.data) {
         const matchCount = calculateMatchingWords(lowerCaseInput, question.question);
         if (matchCount > maxMatchCount) {
           maxMatchCount = matchCount;
